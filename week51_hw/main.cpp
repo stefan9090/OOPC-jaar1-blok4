@@ -20,9 +20,9 @@ int main( void ){
    auto shcp = hwlib::target::pin_out( hwlib::target::pins::d9 );
    auto stcp = hwlib::target::pin_out( hwlib::target::pins::d10 );
    auto spi  = hwlib::spi_bus_bit_banged_sclk_mosi_miso( 
-      stcp, ds, hwlib::pin_in_dummy 
+      shcp, ds, hwlib::pin_in_dummy 
    );
-   auto hc595 = hwlib::hc595(spi, shcp);
+   auto hc595 = hwlib::hc595(spi, stcp);
    auto led1 = hwlib::target::pin_out(1, 25);//pin 2 on arduino
    auto led2 = hwlib::target::pin_out(2, 28);//pin 3 on arduino
    auto led3 = hwlib::target::pin_out(2, 26);//pin 4 on arduino
